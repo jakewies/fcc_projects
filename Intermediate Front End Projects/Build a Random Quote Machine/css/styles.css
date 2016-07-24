@@ -1,102 +1,84 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
-@import 'https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i';
+/* IMPORTS */
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700italic,300);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300);
 
+/* VARS */
 body {
-  background-color: #d7d7d7;
-  font-family: "Lato";
+  background-color: #b6b6b6;
 }
 
-.logo {
-  display: block;
-  margin: 50px auto;
+.container {
+  background-color: #f7f7f7;
+  width: 50%;
+  margin: 10% auto 0;
+  padding: 25px;
+  font-family: "Merriweather", sans-serif;
+  box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.75);
 }
 
-form {
-  width: 450px;
-  padding: 15px;
-  margin: 20px auto 50px;
-  zoom: 1;
+.container .quote-box {
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #b6b6b6;
+}
+
+.container .quote-box #quote {
+  padding: 10px 10px 10px 25px;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.container .quote-box #author {
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: right;
+  letter-spacing: 0.75px;
+}
+
+.container .button-box {
   display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 25px;
+  opacity: 0;
 }
 
-@media (max-width: 500px) {
-  form {
-    width: 350px;
-  }
-}
-
-form .search-box {
-  background-color: #f2f2f2;
-  width: 330px;
-  height: 20px;
-  padding: 10px 5px;
-  float: left;
-  border: 0;
-  font-size: 16px;
-  font-family: sans-serif;
-  font-weight: 300;
-}
-
-form .search-box:focus {
-  outline: none;
-}
-
-form .search-button {
-  width: 110px;
-  float: right;
-  border: 0;
-  height: 40px;
-  background-color: #3385ff;
-  color: #f2f2f2;
-  font-size: 16px;
+.container .button-box button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #333;
+  color: #f7f7f7;
+  border: none;
+  transition: background-color 500ms ease-in-out;
+  letter-spacing: 0.75px;
   cursor: pointer;
 }
 
-form .fa {
-  width: 50px;
-  text-align: center;
-  line-height: 30px;
-  color: #f2f2f2;
-  background-color: #3385ff;
-  margin-left: 10px;
-  padding: 5px;
-  cursor: pointer;
+.container .button-box button:hover {
+  color: #b6b6b6;
 }
 
-.search-results {
-  margin-bottom: 20px;
+.container .button-box button:focus {
+  outline: 0;
 }
 
-.result {
+.container .button-box .fa {
   text-decoration: none;
-  color: black;
+  margin-top: 7px;
+  color: #b6b6b6;
+  transition: color 200ms ease-in-out;
 }
 
-.result img {
-  float: left;
-  margin-right: 20px;
-}
-
-.result div {
-  background-color: #f2f2f2;
-  width: 75%;
-  padding: 15px;
-  margin: 10px auto;
-  transition: transform 0.2s ease-out;
-}
-
-.result div:hover {
-  transform: scaleX(0.95);
-  background-color: #e9e9e9;
-}
-
-.result div p {
-  font-weight: 300;
+.container .button-box .fa:hover {
+  color: #4099ff;
 }
 
 .sig {
   text-align: center;
-  font-family: "Muli";
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 14px;
   margin-top: 50px;

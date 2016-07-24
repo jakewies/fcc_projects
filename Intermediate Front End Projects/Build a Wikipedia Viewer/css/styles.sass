@@ -1,0 +1,95 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700'
+@import 'https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i'
+
+body
+	background-color: #d7d7d7
+	font-family: 'Lato', sans-serif
+
+.logo
+	display: block
+	margin: 50px auto
+
+form
+	width: 450px
+	padding: 15px
+	margin: 20px auto 50px
+	zoom: 1
+	display: flex
+
+	@media (max-width: 500px)
+		width: 350px
+
+	.search-box
+		background-color: #f2f2f2
+		width: 330px
+		height: 20px
+		padding: 10px 5px
+		float: left
+		border: 0
+		font-size: 16px
+		font-family: sans-serif
+		font-weight: 300
+
+		&:focus
+			outline: none
+
+	.search-button
+		width: 110px
+		float: right
+		border: 0
+		height: 40px
+		background-color: #3385ff
+		color: #f2f2f2
+		font-size: 16px
+		cursor: pointer
+
+	.fa
+		width: 50px
+		text-align: center
+		line-height: 30px
+		color: #f2f2f2
+		background-color: #3385ff
+		margin-left: 10px
+		padding: 5px
+		cursor: pointer
+
+.search-results
+	margin-bottom: 20px
+
+.result
+	text-decoration: none
+	color: black
+
+	img
+		float: left
+		margin-right: 20px
+
+	div
+		background-color: #f2f2f2
+		width: 75%
+		padding: 15px
+		margin: 10px auto
+		transition: transform 0.20s ease-out
+
+		&:hover
+			transform: scaleX(0.95)
+			background-color: #e9e9e9
+
+		p
+			font-weight: 300
+
+.sig
+	text-align: center
+	font-family: 'Muli', sans-serif
+	font-weight: 300
+	font-size: 14px
+	margin-top: 50px
+
+	.fa-heart
+		color: #ff4d4d
+		margin-right: 3px
+
+	.name
+		color: #3385ff
+		font-size: 16px
+		text-decoration: none

@@ -1,0 +1,70 @@
+/* IMPORTS */
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+
+/* Color Palette */
+
+*, :before, :after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #274555;
+    color: #274555;
+    font-family: "Open Sans", sans-serif;
+}
+
+#weather-container {
+    background-color: #dae9f4;
+    padding: 50px;
+    margin: 100px auto 10px;
+    width: 60%;
+    opacity: 0;
+}
+
+#weather-container img {
+    display: block;
+    margin: 0 auto 20px;
+    height: 60px;
+    width: 60px;
+}
+
+#weather-container h1 {
+    font-size: 120px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#weather-container h3 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: lighter;
+}
+
+#weather-container a {
+    text-decoration: none;
+    padding: 10px 5px;
+    width: 25%;
+    margin: 0 auto 10px;
+    background-color: #ff7761;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #274555;
+    cursor: pointer;
+}
+
+#weather-container a:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    #weather-container h1 {
+        font-size: 90px;
+    }
+    #weather-container h3 {
+        font-size: 24px;
+    }
+}

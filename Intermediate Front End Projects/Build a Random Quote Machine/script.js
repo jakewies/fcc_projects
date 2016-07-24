@@ -1,55 +1,82 @@
-/* Get Request */
+// document ready
 $(function() {
-	// getWikiData();
-	$('form').submit(function(evt) {
-		evt.preventDefault();
-		// reset results
-		$('.search-results').html('');
-		// make ajax request
-		getWikiData(encodeURI($('.search-box').val()));
-	});
+
+	$('.container').hide();
+	// get first quote
+	getQuote();
+	$('.container').show();
+
+	// display buttons only after first quote appears
+	setTimeout(function() {
+		$('.button-box').animate({
+			opacity: 1
+		}, 500);
+	}, 1500);
+
+	// on click get quote
+	$('button').on('click', getQuote);
+
 });
 
-function getWikiData(query) {
-		// Make ajax request
-		$.ajax({
-			type: 'GET',
-			url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info%7Cpageimages%7Cextracts&generator=search&redirects=1&inprop=url&pilimit=50&exsentences=1&exlimit=20&exintro=1&explaintext=1&gsrsearch=' + query + '&gsrlimit=10&callback=?',
-			contentType: 'application/json; charset=utf-8',
-			dataType: 'json',
-			success: function(data, textStatus, jqXHR) {
-				displayResults(data.query.pages);
-				//console.log(data.query.pages);
-			},
-			error: function(errorMessage) {
-				console.log(errorMessage);
-			},
-		});
+
+
+/********
+ * VARS *
+ ********/
+var quote,
+	author;
+
+
+
+/********************
+ * Helper Functions *
+ ********************/
+
+// create ajax request
+function getQuote() {
+
+	$.ajax({
+		headers: {
+			'X-MASHAPE-KEY': '2s4KXUZihbmshVlAWd7OD9hfPCr7p1UPdSqjsn6fRMlc1Pk6k1'
+		},
+		url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
+		success: function(quoteData) {
+
+			// convert ajax response to json
+			var response = JSON.parse(quoteData);
+			quote = '"' + response.quote + '"';
+			author = response.author;
+
+			// function calls
+			displayQuote();
+			tweetURL();
+			changeAccent();
+		}
+	});
 }
 
-function displayResults(pages) {
-	for (var page in pages) {
-		// declare parent element to contain each result
-		var anchor = document.createElement('a');
-		anchor.setAttribute('target', '_blank');
-		anchor.setAttribute('href', pages[page].canonicalurl);
-		anchor.className = "result";
+// display new quote
+function displayQuote() {
+	$('.quote-box').animate({
+			opacity: 0
+		}, 500, function() {
+			$(this).find('#quote').html(quote);
+			$(this).find('#author').html('- ' + author);
+			$(this).animate({
+				opacity: 1
+			}, 500);
+	});
+}
 
-		// declare inner html for each result
-		var html = "<div>";
+// change color of new quote button --> https://css-tricks.com/snippets/javascript/random-hex-color/
+function changeAccent() {
+	var color = '#' + Math.floor(Math.random()*16777215).toString(16);
+	$('button').css('background-color', color);
+}
 
-		// add result info
-		if (pages[page].thumbnail) {
-			html += "<img src='" + pages[page].thumbnail.source + "' alt='" + pages[page].title + "'>";
-		}
-		html += "<h2>" + pages[page].title + "</h2>";
-		html += "<p>" + pages[page].extract + "</p>";
-
-		// end inner html
-		html += "</div>";
-
-		// add html to containing parent element
-		anchor.innerHTML = html;
-		$('.search-results').append(anchor);
-	}
+// change href of twitter button to enable tweet action
+function tweetURL() {
+	var tweet = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote + " - " + author) + "&via=FreeCodeCamp";
+	$('.fa').attr("href", tweet);
+	console.log(tweet);
 }

@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Wikipedia Viewer</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Wikipedia Viewer</title>
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	</head>
+	<body>
+		<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png" height="75" class="logo" alt="Wikipedia">
+		<form>
+		  <input type="text" name="search" placeholder="search Wikipedia..." required="required" class="search-box">
+		  <button type="submit" class="search-button">Search</button>
+		  <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i aria-hidden="true" class="fa fa-random"></i></a>
+		</form>
+		<div class="search-results"></div>
+		<div class="sig">
+		  <p>Made with <i class="fa fa-heart"></i>'s and stuff by <a href="https://github.com/jake-wies" class="name">Jake Wiesler</a></p>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="script.js"></script>
+	</body>
 </html>
